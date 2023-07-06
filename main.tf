@@ -20,7 +20,7 @@ provider "azurerm" {
 # Create a resource group
 resource "azurerm_resource_group" "aya-rg" {
   name     = "aya-rg"
-  location = "Central US"
+  location = "East US"
 
   tags = local.common_tags
 }
@@ -90,4 +90,75 @@ resource "azurerm_network_security_rule" "aya-dev-rule" {
 resource "azurerm_subnet_network_security_group_association" "aya-sga" {
   subnet_id                 = azurerm_subnet.subnet-1.id
   network_security_group_id = azurerm_network_security_group.aya-network-security-group.id
+}
+
+resource "azurerm_public_ip" "aya-ip" {
+  name                    = "aya-pip"
+  location                = azurerm_resource_group.aya-rg.location
+  resource_group_name     = azurerm_resource_group.aya-rg.name
+  allocation_method       = "Dynamic"
+  idle_timeout_in_minutes = 30
+
+  tags = local.common_tags
+}
+
+resource "azurerm_network_interface" "aya-nic" {
+  name                = "aya-nic"
+  location            = azurerm_resource_group.aya-rg.location
+  resource_group_name = azurerm_resource_group.aya-rg.name
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                     = azurerm_subnet.subnet-1.id
+    private_ip_address_allocation = "Dynamic"
+    # private_ip_address            = "10.0.2.5"
+    public_ip_address_id          = azurerm_public_ip.aya-ip.id
+  }
+
+   tags = local.common_tags
+}
+
+resource "azurerm_linux_virtual_machine" "aya-vm" {
+  name                = "aya-machine"
+  resource_group_name = azurerm_resource_group.aya-rg.name
+  location            = azurerm_resource_group.aya-rg.location
+  size                = "Standard_F2"
+  admin_username      = "adminuser"
+  network_interface_ids = [
+    azurerm_network_interface.aya-nic.id,
+  ]
+
+ custom_data = filebase64("${path.module}/customdata.tpl")
+
+  admin_ssh_key {
+    username   = "adminuser"
+    public_key = file("~/.ssh/id_rsa.pub")
+  }
+
+  os_disk {
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
+
+  source_image_reference {
+    publisher = "Canonical"
+    offer     = "0001-com-ubuntu-server-focal"
+    sku       = "20_04-lts"
+    version   = "latest"
+  }
+
+  provisioner "local-exec" {
+    // script file, vars
+    command = templatefile("linux-ssh-script.tpl", {
+        hostname = self.public_ip_address, 
+        user = "adminuser",
+        identityfile = "~/.ssh/id_rsa" // private_key
+    })
+    # interpreter = [ "Powershell", "-Command" ] // for windows; wheter we are using powershell/bash 
+
+    interpreter = [ "bash", "-c" ] // for linux
+
+  }
+
+  tags = local.common_tags
 }
