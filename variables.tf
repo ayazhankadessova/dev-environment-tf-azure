@@ -9,3 +9,7 @@ variable "subscription_id" {
 variable "source_address_prefix" {
   type = string
 }
+
+variable "host_os" {
+    type = string
+}

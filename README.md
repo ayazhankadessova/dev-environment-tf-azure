@@ -249,3 +249,47 @@ Replaces VM & runs provisioner
 
 Command Plate -> remote-ssh -> find public IP, checkout if docker is installed
 ```
+
+## Connect to Host
+
+> Command Pallette -> remote-ssh:connect to host -> choose the public ip address -> continue -> connected to remote!
+
+> docker --version
+
+should show installed docker version
+
+done !
+
+## Terraform Data sources
+
+https://developer.hashicorp.com/terraform/language/data-sources
+
+Data sources are ways that we can query items from the provider; in this case, Azure API, and use it within our code.
+
+```
+data "aws_ami" "example" {
+  most_recent = true
+
+  owners = ["self"]
+  tags = {
+    Name   = "app-server"
+    Tested = "true"
+  }
+}
+
+```
+
+Although we don't really need it since it is already available in our state file, we are going to query the public IP we're using just to show how data sources work.
+
+https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/public_ip
+
+```
+data "azurerm_public_ip" "aya-ip-data" {
+  name                = azurerm_public_ip.aya-ip.name
+  resource_group_name = azurerm_resource_group.aya-rg.name
+}
+```
+
+- No need to apply, just refresh
+
+> terraform apply -refresh-only

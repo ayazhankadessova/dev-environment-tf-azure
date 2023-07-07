@@ -147,18 +147,22 @@ resource "azurerm_linux_virtual_machine" "aya-vm" {
     version   = "latest"
   }
 
-  provisioner "local-exec" {
+  
     // script file, vars
-    command = templatefile("linux-ssh-script.tpl", {
-        hostname = self.public_ip_address, 
-        user = "adminuser",
-        identityfile = "~/.ssh/id_rsa" // private_key
-    })
+    provisioner "local-exec" {
+      command = templatefile("${var.host_os}-ssh-script.tpl", {
+          hostname = self.public_ip_address,
+          user = "adminuser",
+          identityfile = "~/.ssh/id_rsa"
+      })
+      interpreter = var.host_os == "windows" ? ["Powershell", "-Command"] : ["bash", "-c"]
+  }
     # interpreter = [ "Powershell", "-Command" ] // for windows; wheter we are using powershell/bash 
 
-    interpreter = [ "bash", "-c" ] // for linux
-
-  }
-
   tags = local.common_tags
+}
+
+data "azurerm_public_ip" "aya-ip-data" {
+  name                = azurerm_public_ip.aya-ip.name
+  resource_group_name = azurerm_resource_group.aya-rg.name
 }
