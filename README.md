@@ -86,4 +86,4 @@ I'm an aspiring software developer from Kazakhstan, studying in Hong Kong.
 
 ## ✍️ Project Steps & Notes
 
-- Saved My Steps & Notes [here](https://github.com/ayazhankadessova/customized-meme-generator/blob/main/myNotes.md) & [practice folder](https://github.com/ayazhankadessova/customized-meme-generator/tree/main/practice).
+- Saved My Steps & Notes [here](https://github.com/ayazhankadessova/tf-azure/blob/main/Notes.md).
