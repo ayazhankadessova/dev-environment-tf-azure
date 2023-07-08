@@ -26,7 +26,7 @@ I gained hands-on experience with Terraform and Azure (I played around first pla
 ## Links & Demo
 
 <h2 align="center">
- <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/86869537/252013171-a3b94bd8-9484-48c4-9c3e-1968167921c2.gif" width="700" loop> 
+ <img src="https://github.com/ayazhankadessova/dev-environment-tf-azure/assets/86869537/b81a062a-f3eb-4dca-9780-da49d1819273" width="700"> 
 </h2>
 
 - [Github Repo](https://github.com/ayazhankadessova/dev-environment-tf-azure)
