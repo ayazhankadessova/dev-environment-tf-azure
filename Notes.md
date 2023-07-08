@@ -1,3 +1,5 @@
+<h2 align="center">✍️ Project Steps & Notes</h2>
+
 ## Useful commands
 
 1. Check all the resources
@@ -291,7 +293,6 @@ owners = ["self"]
 tags = {
 Name = "app-server"
 Tested = "true"
-}
 }
 
 ```
