@@ -1,5 +1,5 @@
 <h2 align="center">
- <img src="https://media.giphy.com/media/fGL6oc26zsv6sA1sLx/giphy.gif" width="90">Dev Environment - Azure +  Terraform <img src="images/OpenAIlogo.png" alt="OpenAI Logo" width="40">  <img src="https://media.giphy.com/media/fGL6oc26zsv6sA1sLx/giphy.gif" width="90">
+ <img src="screenshots/1280px-Terraform_Logo.svg.png" width="40">Dev Environment - Azure +  Terraform <img src="screenshots/Microsoft_Azure_Logo.png" alt="OpenAI Logo" width="40"> 
 </h2>
 
 `Microsoft Azure`, `Hashicorp Terraform`, `Infrastructure as Code`, `Azure resource management`, `Cloud infrastructure management`
