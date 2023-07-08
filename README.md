@@ -5,8 +5,8 @@
 `Microsoft Azure`, `Hashicorp Terraform`, `Infrastructure as Code`, `Azure resource management`, `Cloud infrastructure management`
 
 ## Check my App out [here](https://trip-generator-openai.netlify.app) !
+![dev-env](https://github.com/ayazhankadessova/tf-azure/assets/86869537/34ccf031-aa03-4327-a0ef-4a2d3542d5a8)
 
-![dev-env](https://github.com/ayazhankadessova/tf-azure/assets/86869537/feeef861-b02a-42e0-8a8b-c4ec2ce7adc0)
 
 ## 💡 Motivation
 
