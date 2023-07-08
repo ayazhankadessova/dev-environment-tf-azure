@@ -37,14 +37,9 @@ module "aya-dev-rule" {
   source = "./modules/azurerm/network_security_rule"
 
   network-sr-name = "aya-dev-rule"
-  #   priority                    = 100       # lower number, higher priority
-  #   direction                   = "Inbound" # allow access to our instances, not from
-  #   access                      = "Allow"
-  #   protocol                    = "*"
-  #   source_port_range           = "*"
-  #   destination_port_range      = "*"
+
   my-source_address_prefix = var.source_address_prefix
-  #   destination_address_prefix  = "*"
+
   rg-name         = local.name
   network-sg-name = module.aya-network-security-group.name
 }
@@ -66,18 +61,16 @@ module "aya-ip" {
 
 module "aya-nic" {
 
-  source = "./modules/azurerm/network_interface"
-  name   = "aya-nic"
-    location            = local.location
-    resource_group_name = local.name
+  source              = "./modules/azurerm/network_interface"
+  name                = "aya-nic"
+  location            = local.location
+  resource_group_name = local.name
 
-#   ip_configuration {
-    ip-name = "internal"
-    subnet_id                     = module.subnet-1.id
-    # private_ip_address_allocation = "Dynamic"
-    # private_ip_address            = "10.0.2.5"
-    public_ip_address_id = module.aya-ip.id
-#   }
+  ip-name   = "internal"
+  subnet_id = module.subnet-1.id
+
+  public_ip_address_id = module.aya-ip.id
+  #   }
 }
 
 resource "azurerm_linux_virtual_machine" "aya-vm" {
@@ -119,7 +112,6 @@ resource "azurerm_linux_virtual_machine" "aya-vm" {
     })
     interpreter = var.host_os == "windows" ? ["Powershell", "-Command"] : ["bash", "-c"]
   }
-  # interpreter = [ "Powershell", "-Command" ] // for windows; wheter we are using powershell/bash 
 
   tags = local.common_tags
 }
@@ -127,41 +119,4 @@ resource "azurerm_linux_virtual_machine" "aya-vm" {
 # data "azurerm_public_ip" "aya-ip-data" {
 #   name                = module.aya-ip.name
 #   resource_group_name = local.name
-# }
-
-
-
-
-
-
-
-
-# moved {
-#   from = azurerm_virtual_network.aya_vm
-#   to   = module.virtual_network.azurerm_virtual_network.this[0]
-# }
-
-# moved {
-#   from = aya_vm.name
-#   to   = module.virtual_network.azurerm_virtual_network.aya-vm.name[0]
-# }
-
-# moved {
-#   from = aya_vm.location
-#   to   = module.virtual_network.azurerm_virtual_networkaya-vm.aya-vm.location[0]
-# }
-
-# moved {
-#   from = aya_vm.resource_group_name
-#   to   = module.virtual_network.azurerm_virtual_network.aya-vm.resource_group_name[0]
-# }
-
-# moved {
-#   from = aya_vm.tags
-#   to   = module.virtual_network.azurerm_virtual_network.aya-vm.tags[0]
-# }
-
-# moved {
-#   from = aya_vm.address_space
-#   to   = module.virtual_network.azurerm_virtual_network.aya-vm.address_space[0]
 # }
