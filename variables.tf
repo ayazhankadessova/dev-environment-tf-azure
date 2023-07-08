@@ -11,5 +11,6 @@ variable "source_address_prefix" {
 }
 
 variable "host_os" {
-    type = string
+  type    = string
+  default = "osx"
 }
