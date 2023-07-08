@@ -25,9 +25,7 @@ I gained hands-on experience with Terraform and Azure (I played around first pla
 
 ## Links & Demo
 
-<p align="center">
-  <img src="https://github.com/ayazhankadessova/dev-environment-tf-azure/assets/86869537/993a18f5-1fe5-491b-8f6f-bd6aea527054" alt="dev-env" width="500"/>
-</p>
+![dev-env](https://github.com/ayazhankadessova/dev-environment-tf-azure/assets/86869537/32a81ab1-059f-46e7-b591-063213a9703e)
 
 - [Github Repo](https://github.com/ayazhankadessova/dev-environment-tf-azure)
 
@@ -44,7 +42,7 @@ I gained hands-on experience with Terraform and Azure (I played around first pla
 2. Go to the project directory
 
 ```bash
-  cd tf-azure
+  cd dev-environment-tf-azure
 ```
 
 3. Login to Azure
