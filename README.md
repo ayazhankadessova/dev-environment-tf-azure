@@ -26,10 +26,10 @@ I gained hands-on experience with Terraform and Azure (I played around first pla
 ## Links & Demo
 
 <p align="center">
-  <img src="https://github.com/ayazhankadessova/tf-azure/assets/86869537/34ccf031-aa03-4327-a0ef-4a2d3542d5a8" alt="dev-env" width="500"/>
+  <img src="https://github.com/ayazhankadessova/dev-environment-tf-azure/assets/86869537/993a18f5-1fe5-491b-8f6f-bd6aea527054" alt="dev-env" width="500"/>
 </p>
 
-- [Github Repo](https://github.com/ayazhankadessova/tf-azure)
+- [Github Repo](https://github.com/ayazhankadessova/dev-environment-tf-azure)
 
 ## Run Locally
 
@@ -38,7 +38,7 @@ I gained hands-on experience with Terraform and Azure (I played around first pla
 1. Clone the project
 
 ```bash
-  git clone https://github.com/ayazhankadessova/tf-azure.git
+  git clone https://github.com/ayazhankadessova/dev-environment-tf-azure.git
 ```
 
 2. Go to the project directory
@@ -86,4 +86,4 @@ I'm an aspiring software developer from Kazakhstan, studying in Hong Kong.
 
 ## ✍️ Project Steps & Notes
 
-- Saved My Steps & Notes [here](https://github.com/ayazhankadessova/tf-azure/blob/main/Notes.md).
+- Saved My Steps & Notes [here](https://github.com/ayazhankadessova/dev-environment-tf-azure/blob/main/Notes.md).
