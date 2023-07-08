@@ -24,6 +24,7 @@ I gained hands-on experience with Terraform and Azure (I played around first pla
 - Cloud Infrastructure Management
 
 ## Links & Demo
+
 ![dev-env](https://github.com/ayazhankadessova/dev-environment-tf-azure/assets/86869537/a3b94bd8-9484-48c4-9c3e-1968167921c2)
 
 - [Github Repo](https://github.com/ayazhankadessova/dev-environment-tf-azure)
