@@ -5,13 +5,13 @@
 - Azure Resource Group
 
 <h2 align="center">
- <img src="screenshots/aya-rg2.png" width="110"> Dev Environment - Azure +  Terraform <img src="screenshots/Microsoft_Azure_Logo.png" alt="OpenAI Logo" width="90"> 
+ <img src="screenshots/aya-rg2.png" width="600"> 
 </h2>
 
 - VM with bootstrapped Docker
 
 <h2 align="center">
- <img src="screenshots/Testing VM.png" width="110"> 
+ <img src="screenshots/Testing VM.png" width="600"> 
 </h2>
 
 ## Useful commands
