@@ -25,6 +25,8 @@ I gained hands-on experience with Terraform and Azure (I played around first pla
 
 ## Links & Demo
 
+![hey](https://user-images.githubusercontent.com/86869537/252012185-8e550df0-0f8b-4116-87d8-2d16a6d4fbf2.gif)
+
 ![dev-env](https://github.com/ayazhankadessova/dev-environment-tf-azure/assets/86869537/8e550df0-0f8b-4116-87d8-2d16a6d4fbf2)
 
 - [Github Repo](https://github.com/ayazhankadessova/dev-environment-tf-azure)
