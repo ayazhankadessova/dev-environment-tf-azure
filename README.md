@@ -31,7 +31,7 @@ I gained hands-on experience with Terraform and Azure (I played around first pla
 
 ## Run Locally
 
-* Pre-req: Env Variables in `terraform.tfvars`, terraform, Azure Account.
+- Pre-req: Env Variables in `terraform.tfvars`, terraform, Azure Account.
 
 1. Clone the project
 
@@ -52,19 +52,23 @@ az login
 ```
 
 4. Init
+
 ```bash
 terraform init
 ```
 
 5. Plan
+
 ```bash
 terraform apply
 ```
 
 6. Apply
+
 ```bash
 terraform apply -auto-approve
 ```
+
 ## Author
 
 - [@ayazhankadessova](https://github.com/ayazhankadessova)
@@ -81,4 +85,3 @@ I'm an aspiring software developer from Kazakhstan, studying in Hong Kong.
 ## ✍️ Project Steps & Notes
 
 - Saved My Steps & Notes [here](https://github.com/ayazhankadessova/customized-meme-generator/blob/main/myNotes.md) & [practice folder](https://github.com/ayazhankadessova/customized-meme-generator/tree/main/practice).
-

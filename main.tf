@@ -8,7 +8,7 @@ resource "azurerm_resource_group" "aya-rg" {
 
 module "aya-vm" {
 
-  source = "./modules/azuretm/virtual_network"
+  source = "./modules/azurerm/virtual_network"
 
   my_location            = local.location # vm is dependant on rg
   my_resource_group_name = local.name
@@ -18,15 +18,14 @@ module "aya-vm" {
 }
 
 module "subnet-1" {
-  source              = "./modules/azuretm/subnet"
+  source              = "./modules/azurerm/subnet"
   subnet-name         = "aya-subnet-1"
   vn-name             = module.aya-vm.name
   resource_group_name = local.name
-  #   address_prefixes     = ["10.123.1.0/24"]
 }
 
 module "aya-network-security-group" {
-  source                         = "./modules/azuretm/network_security_group"
+  source                         = "./modules/azurerm/network_security_group"
   network-sg-name                = "aya-network-security-group"
   network-sg-location            = local.location
   network-sg-resource_group_name = local.name
@@ -35,7 +34,7 @@ module "aya-network-security-group" {
 }
 
 module "aya-dev-rule" {
-  source = "./modules/azuretm/network_security_rule"
+  source = "./modules/azurerm/network_security_rule"
 
   network-sr-name = "aya-dev-rule"
   #   priority                    = 100       # lower number, higher priority
@@ -57,7 +56,7 @@ resource "azurerm_subnet_network_security_group_association" "aya-sga" {
 
 module "aya-ip" {
 
-  source = "./modules/azuretm/public_ip"
+  source = "./modules/azurerm/public_ip"
 
 
   name                = "aya-pip"
@@ -67,7 +66,7 @@ module "aya-ip" {
 
 module "aya-nic" {
 
-  source = "./modules/azuretm/network_interface"
+  source = "./modules/azurerm/network_interface"
   name   = "aya-nic"
     location            = local.location
     resource_group_name = local.name
