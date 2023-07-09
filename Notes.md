@@ -30,11 +30,15 @@ terraform state show azurerm_resource_group.aya-rg
 
 3. Show the whole state
 
-`terraform show``
+```
+terraform show
+```
 
 4. Show what will be destroyed
 
-`terraform plan -destroy`
+```
+terraform plan -destroy
+```
 
 5. `terraform.tfsate.backup` -> we can use it if we mess up smth by just changing the name to `terraform.tfstate`
 
