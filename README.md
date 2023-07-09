@@ -10,7 +10,7 @@ I suddenly got inspired to learn more about cloud infrastructure management and 
 
 In the course, I was doing small tasks to understand how to create different resources separately and the overall power of Terraform for Infrastructure as Code, but I wanted to combine my knowledge and build something whole!
 
-I chose to build a dev environment in Azure that I can SSH into to have my own redeployable environment & Bootstrap it with it with Docker for future projects.
+I chose to build a dev environment in Azure that I can SSH into to have my own redeployable environment & bootstrapped it with it with Docker for future projects.
 
 I could practice managing cloud resources and learn more about Azure!
 
