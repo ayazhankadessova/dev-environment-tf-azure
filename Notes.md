@@ -169,9 +169,7 @@ public_key = file("~/.ssh/id_rsa.pub")
 After creating VM, we can get the ip address:
 
 ```
-
 public_ip_address = ...
-
 ```
 
 ### 12. Go into VM
@@ -179,14 +177,12 @@ public_ip_address = ...
 > ssh -i ~/.ssh/id*rsa adminuser@\_ipaddr*
 
 ```
-
 adminuser@aya-machine:~$ lsb_release -a
 No LSB modules are available.
 Distributor ID: Ubuntu
 Description: Ubuntu 20.04.6 LTS
 Release: 20.04
 Codename: focal
-
 ```
 
 - We have Ubuntu Instance.
@@ -204,9 +200,7 @@ We are going to utilize the Custom Data argument to bootstrap our instance & ins
 3. filebase64 encodes data in base64, which is what Azure is expecting for Custom Data.
 
 ```
-
 custom_data = filebase64("scripts/customdata.tpl")
-
 ```
 
 4. `custom_data` requires the VM to be redeployed, so it will Add 1, destroy 1.
@@ -220,10 +214,8 @@ _search for ssh command_ cmd +r and type "ss"
 ### Check if we have the docker
 
 ```
-
 adminuser@aya-machine:~$ docker --version
 Docker version 24.0.2, build cb74dfc
-
 ```
 
 -> now we have Docker installed in our brand new VM ready to go.
@@ -263,13 +255,11 @@ IdentityFile
 We will set it up inside the `azurerm_linux_virtual_machine`
 
 ```
-
 command = templatefile("linux-ssh-script.tpl", {
 hostname = self.public_ip_address,
 user = "adminuser",
 identityfile = "~/.ssh/id_rsa" // private_key
 })
-
 ```
 
 - Provisioner does not get picked up by the state. Terraform doesn't know we changed anything. So, we need to:
@@ -303,7 +293,6 @@ Although we don't really need it since it is already available in our state file
 https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/public_ip
 
 ```
-
 data "aws_ami" "example" {
 most_recent = true
 
@@ -312,11 +301,9 @@ tags = {
 Name = "app-server"
 Tested = "true"
 }
-
 ```
 
 ```
-
 data "azurerm_public_ip" "aya-ip-data" {
 name = azurerm_public_ip.aya-ip.name
 resource_group_name = azurerm_resource_group.aya-rg.name
